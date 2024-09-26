@@ -20,7 +20,6 @@ def setup_seed(seed):
 
 class MyDataset(Dataset):
     def __init__(self, data_path):
-        #data_path:数据所在文件夹
         self.data_path = data_path
         self.img_list = os.listdir(self.data_path)
 
@@ -157,9 +156,9 @@ class ChannelRecombinationModul(nn.Module):
         return x2
 
 
-class TFA_Net(nn.Module):
+class TFANet(nn.Module):
     def __init__(self,nb_classes,Chans,Samples,DropoutRate,N1,N2):
-        super(TFA_Net, self).__init__()
+        super(TFANet, self).__init__()
         len_ratio=Samples/375
         self.convl1=nn.Sequential(
             nn.Conv2d(

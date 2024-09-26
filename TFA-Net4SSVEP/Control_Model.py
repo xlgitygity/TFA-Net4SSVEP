@@ -8,7 +8,6 @@ import torch.nn.functional as F
 
 class MyDataset(Dataset):
     def __init__(self, data_path):
-        #data_path:数据所在文件夹
         self.data_path = data_path
         self.img_list = os.listdir(self.data_path)
 
@@ -24,7 +23,7 @@ class MyDataset(Dataset):
         return len(self.img_list)
 
 
-class CCNN(nn.Module):                          ### M-CNN & C-CNN
+class CCNN(nn.Module):                          #C-CNN
     def __init__(self, CNN_PARAMS):
         super(CCNN, self).__init__()
 
@@ -154,7 +153,6 @@ class DeepConvNet(nn.Module):
         self.fc = nn.Linear(math.ceil(math.ceil(math.ceil(math.ceil(Samples/3)/3)/3)/3)*200, nb_classes)
 
     def forward(self, x):
-        # Define the forward pass
         x = x.to(torch.float32)
         x = self.conv1(x)
         x = self.conv2(x)
