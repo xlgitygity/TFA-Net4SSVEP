@@ -19,20 +19,25 @@ def setup_seed(seed):
     torch.backends.cudnn.benchmark = True
 
 class MyDataset(Dataset):
-    def __init__(self, data_path):
-        self.data_path = data_path
-        self.img_list = os.listdir(self.data_path)
+    def __init__(self, file_path):
+        self.file_path = file_path
+        self.data_list = os.listdir(self.file_path)
 
     def __getitem__(self, index):
-        img_title = self.img_list[index]
-        img_label = int(img_title.split('_')[1].split('.')[0])
-        img_path = os.path.join(self.data_path, img_title)
-        img = np.load(img_path,allow_pickle=True)
-        img = img.transpose(2, 0, 1)
-        return img, img_label
+        """
+        Extract label from the filename.
+        Please modify according to your data format.
+        Assumes filename format is 'name_label.npy'.
+        """
+        data_title = self.data_list[index]
+        label = int(data_title.split('_')[1].split('.')[0])
+        data_path = os.path.join(self.file_path, data_title)
+        data = np.load(data_path,allow_pickle=True)
+        data = data.transpose(2, 0, 1)
+        return data, label
 
     def __len__(self):
-        return len(self.img_list)
+        return len(self.data_list)
 
 class ChannelAttentionModul(nn.Module):
     def __init__(self, in_channel, r=0.5):
@@ -292,7 +297,7 @@ class TFANet(nn.Module):
         )
         self.classification=nn.Sequential(
             nn.Flatten(),
-            nn.Linear(10*math.ceil(math.ceil(Samples/int(15*len_ratio))/5)*N2,nb_classes),            #CrossEntropyLoss内置了softmax 因此此处不需额外添加
+            nn.Linear(10*math.ceil(math.ceil(Samples/int(15*len_ratio))/5)*N2,nb_classes),
         )
     def forward(self,x):
         x=x.to(torch.float32)
