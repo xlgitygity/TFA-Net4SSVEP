@@ -1,6 +1,7 @@
 # TFA-Net
 
 This repository contains the implementation of our paper titled **"Decoding SSVEP via Calibration-Free TFA-Net: A Novel Network Using Time-Frequency Features."**
+![TFA-Net Architecture](TFA-Net4SSVEP/figure/Fig.%202.png)
 
 ## Dataset
 
