@@ -15,10 +15,7 @@ If you use this dataset in your research, please cite the following paper:
 
 "Wang Y, Chen X, Gao X, Gao S. A benchmark dataset for SSVEP-based brain–computer interfaces. IEEE Transactions on Neural Systems and Rehabilitation Engineering. 2016 Nov 10;25(10):1746-52."
 
-## Requirements
-
-- Coming soon: A list of libraries or dependencies required for the project will be added shortly.
 
 ## Usage
 
-- Coming soon: Instructions on how to run the code or use the model will be provided soon.
+- **Preprocessing**: Use `CWT_preprocess` to transform SSVEP signals into time-frequency representations. Since the CWT process is time-consuming, it is recommended to store the processed data instead of performing real-time CWT. The transformed data can occupy a large amount of memory, so you can adjust the `overlap` parameter in the `slice_and_cwt` function to control the data augmentation factor and alleviate excessive memory usage.
