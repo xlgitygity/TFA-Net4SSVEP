@@ -2,7 +2,7 @@
 
 This repository contains the implementation of our paper：
 
-**Lei Xu, Xinyi Jiang, Ruimin Wang, Pan Lin, Yuankui Yang, Yue Leng, Wenming Zheng, and Sheng Ge, ["Decoding SSVEP via Calibration-Free TFA-Net: A Novel Network Using Time-Frequency Features."](https://ieeexplore.ieee.org/document/10777482), published in IEEE Journal of Biomedical and Health Informatics (JBHI).**
+Lei Xu, Xinyi Jiang, Ruimin Wang, Pan Lin, Yuankui Yang, Yue Leng, Wenming Zheng, and Sheng Ge, ["Decoding SSVEP via Calibration-Free TFA-Net: A Novel Network Using Time-Frequency Features."](https://ieeexplore.ieee.org/document/10777482), published in IEEE Journal of Biomedical and Health Informatics (JBHI).
 
 ![TFA-Net Architecture](TFA-Net4SSVEP/figure/Fig.%202.png)
 
